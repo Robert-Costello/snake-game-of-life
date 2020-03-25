@@ -52,11 +52,11 @@ function draw() {
         stroke(0)
         rect(x, y, res - 1, res - 1)
       }
-      // if (grid[i][j] === 2) {
-      //   fill(77, 195, 15)
-      //   stroke(0)
-      //   rect(x, y, res - 1, res - 1)
-      // }
+      if (grid[i][j] === 2) {
+        fill(77, 195, 15)
+        stroke(0)
+        rect(x, y, res - 1, res - 1)
+      }
     }
   }
 

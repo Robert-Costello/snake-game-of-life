@@ -27,8 +27,8 @@ function snake() {
     }
     // this.tail[this.total - 1] = rect(this.x, this.y, res, res)
 
-    this.x = this.x + this.xSpeed * res - 1
-    this.y = this.y + this.ySpeed * res - 1
+    this.x = this.x + this.xSpeed * res
+    this.y = this.y + this.ySpeed * res
 
     this.x = constrain(this.x, 0, width - res)
     this.y = constrain(this.y, 0, height - res)
