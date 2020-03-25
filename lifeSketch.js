@@ -1,12 +1,12 @@
 /* eslint-disable complexity */
+
 //========LIFE BOARD===============
-let s
-let scl
 
 let grid
 let cols
 let rows
-let res = 8
+let res = 12
+let s
 
 function make2DArray(cols, rows) {
   let arr = new Array(cols)
@@ -21,33 +21,35 @@ function make2DArray(cols, rows) {
 function setup() {
   createCanvas(600, 600)
 
-  s = new snake()
-
   frameRate(10)
 
   cols = width / res
   rows = height / res
 
   grid = make2DArray(cols, rows)
+
+  grid[0][0] = 2
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      grid[i][j] = floor(random(2))
+      if (j >= 2) grid[i][j] = floor(random(2))
     }
   }
 }
 
 function draw() {
-  scl = res - 1
   background(45)
-  s.death()
-  s.update()
-  s.show()
+
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let x = i * res
       let y = j * res
       if (grid[i][j] === 1) {
         fill(234, 86, 86)
+        stroke(0)
+        rect(x, y, res - 1, res - 1)
+      }
+      if (grid[i][j] === 2) {
+        fill(77, 195, 15)
         stroke(0)
         rect(x, y, res - 1, res - 1)
       }
@@ -89,43 +91,6 @@ function countNeighbors(grid, x, y) {
 
   return sum
 }
-
-//========SNAKE BOARD===============
-// let s
-// let scl
-// let food
-
-// function setup() {
-//   createCanvas(600, 600)
-
-//   s = new snake()
-
-//   frameRate(10)
-
-//   pickLoc()
-// }
-
-// function pickLoc() {
-//   let cols = floor(width / scl)
-//   let rows = floor(height / scl)
-//   food = createVector(floor(random(cols)), floor(random(rows)))
-//   food.mult(scl)
-// }
-
-// function draw() {
-//   scl = 10
-//   background(45)
-
-//   if (s.eat(food)) {
-//     pickLoc()
-//   }
-//   s.death()
-//   s.update()
-//   s.show()
-
-//   fill(255, 25, 100)
-//   rect(food.x, food.y, scl, scl)
-// }
 
 function keyPressed() {
   if (keyCode === UP_ARROW && s.ySpeed !== 1) {
