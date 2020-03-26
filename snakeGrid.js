@@ -39,20 +39,24 @@ function setup() {
 function draw() {
   background(45)
 
+  s.death()
   s.update()
   s.show()
-  s.death()
+
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let x = i * res
       let y = j * res
+
       if (s.eat(x, y)) {
         grid[i][j] = 0
+        // console.log(x, y)
       }
+
       if (grid[i][j] === 1) {
         fill(234, 86, 86)
         stroke(0)
-        rect(x, y, res - 1, res - 1, 20)
+        rect(x, y, res - 1, res - 1)
       }
     }
   }
