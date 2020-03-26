@@ -8,6 +8,22 @@ function snake() {
   this.total = 0
   this.tail = []
 
+  this.eat = function(pos) {
+    let d = dist(this.x, this.y, pos.x, pos.y)
+    if (d < 1) {
+      this.total++
+      console.log('eat:', this.total)
+      return true
+    } else {
+      return false
+    }
+  }
+
+  this.dir = function(x, y) {
+    this.xSpeed = x
+    this.ySpeed = y
+  }
+
   this.death = function() {
     for (let i = 0; i < this.tail.length; i++) {
       let pos = this.tail[i]
@@ -21,7 +37,7 @@ function snake() {
 
   this.update = function() {
     if (this.total === this.tail.length) {
-      for (let i = 0; i < this.total - 1; i++) {
+      for (let i = 0; i < this.tail.length - 1; i++) {
         this.tail[i] = this.tail[i + 1]
       }
     }
@@ -40,19 +56,5 @@ function snake() {
       rect(this.tail[i].x, this.tail[i].y, scl, scl)
     }
     rect(this.x, this.y, scl, scl)
-  }
-
-  this.dir = function(x, y) {
-    this.xSpeed = x
-    this.ySpeed = y
-  }
-
-  this.eat = function(pos) {
-    let d = dist(this.x, this.y, pos.x, pos.y)
-    if (d < 1) {
-      this.total++
-      console.log(this.total)
-      return true
-    } else return false
   }
 }

@@ -11,7 +11,7 @@ function snake() {
   this.death = function() {
     for (let i = 0; i < this.tail.length; i++) {
       let pos = this.tail[i]
-      console.log('pos:', pos.x)
+
       let d = dist(this.x, this.y, pos.x, pos.y)
       if (d < 1) {
         this.total = 0
@@ -22,11 +22,11 @@ function snake() {
 
   this.update = function() {
     if (this.total === this.tail.length) {
-      for (let i = 0; i < this.total - 1; i++) {
+      for (let i = 0; i < this.tail.length - 1; i++) {
         this.tail[i] = this.tail[i + 1]
       }
     }
-    // this.tail[this.total - 1] = rect(this.x, this.y, res, res)
+    // this.tail[this.total - 1] = createVector(this.x, this.y)
 
     this.x = this.x + this.xSpeed * res
     this.y = this.y + this.ySpeed * res
@@ -40,7 +40,7 @@ function snake() {
     for (let i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x, this.tail[i].y, res - 1, res - 1)
     }
-    rect(this.x, this.y, res - 1, res - 1, 2, 2, 2, 2)
+    rect(this.x, this.y, res - 1, res - 1)
   }
 
   this.dir = function(x, y) {
@@ -49,10 +49,11 @@ function snake() {
   }
 
   this.eat = function(lifeX, lifeY) {
+    let d = dist(this.x, this.y, lifeX, lifeY)
     if (this.x === lifeX && this.y === lifeY) {
-      this.total++
-
       return true
-    } else return false
+    } else {
+      return false
+    }
   }
 }
