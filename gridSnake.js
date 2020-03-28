@@ -26,7 +26,7 @@ function snake() {
         this.tail[i] = this.tail[i + 1]
       }
     }
-    // this.tail[this.total - 1] = createVector(this.x, this.y)
+    this.tail[this.total - 1] = createVector(this.x, this.y)
 
     this.x = this.x + this.xSpeed * res
     this.y = this.y + this.ySpeed * res
@@ -50,7 +50,7 @@ function snake() {
 
   this.eat = function(lifeX, lifeY) {
     let d = dist(this.x, this.y, lifeX, lifeY)
-    if (this.x === lifeX && this.y === lifeY) {
+    if (d < 1) {
       return true
     } else {
       return false
