@@ -48,9 +48,10 @@ function draw() {
       let x = i * res
       let y = j * res
 
-      if (s.eat(x, y)) {
+      if (s.eat(x, y) && grid[i][j] === 1) {
         grid[i][j] = 0
-        // console.log(x, y)
+        s.total++
+        console.log(s.total)
       }
 
       if (grid[i][j] === 1) {
