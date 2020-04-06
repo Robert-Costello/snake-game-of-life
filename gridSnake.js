@@ -8,7 +8,7 @@ function snake() {
   this.total = 0
   this.tail = []
 
-  this.death = function() {
+  this.death = function () {
     for (let i = 0; i < this.tail.length; i++) {
       let pos = this.tail[i]
 
@@ -17,14 +17,14 @@ function snake() {
         this.total = 0
         this.tail = []
         console.log('death')
-        // setTimeout(() => {
-        //   setup()
-        // }, 3000)
+        setTimeout(() => {
+          setup()
+        }, 3000)
       }
     }
   }
 
-  this.cut = function(lifeX, lifeY) {
+  this.cut = function (lifeX, lifeY) {
     for (let k = 0; k < this.tail.length; k++) {
       let pos = this.tail[k]
       let d = dist(pos.x, pos.y, lifeX, lifeY)
@@ -37,7 +37,7 @@ function snake() {
     }
   }
 
-  this.update = function() {
+  this.update = function () {
     if (this.total === this.tail.length) {
       for (let i = 0; i < this.tail.length - 1; i++) {
         this.tail[i] = this.tail[i + 1]
@@ -52,7 +52,7 @@ function snake() {
     this.y = constrain(this.y, 0, height - res)
   }
 
-  this.show = function() {
+  this.show = function () {
     fill(77, 195, 15)
     for (let i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x, this.tail[i].y, res - 1, res - 1)
@@ -60,12 +60,12 @@ function snake() {
     rect(this.x, this.y, res - 1, res - 1)
   }
 
-  this.dir = function(x, y) {
+  this.dir = function (x, y) {
     this.xSpeed = x
     this.ySpeed = y
   }
 
-  this.eat = function(lifeX, lifeY) {
+  this.eat = function (lifeX, lifeY) {
     let d = dist(this.x, this.y, lifeX, lifeY)
     if (d < 1) {
       return true
