@@ -16,6 +16,23 @@ function snake() {
       if (d < 1) {
         this.total = 0
         this.tail = []
+        console.log('death')
+        // setTimeout(() => {
+        //   setup()
+        // }, 3000)
+      }
+    }
+  }
+
+  this.cut = function(lifeX, lifeY) {
+    for (let k = 0; k < this.tail.length; k++) {
+      let pos = this.tail[k]
+      let d = dist(pos.x, pos.y, lifeX, lifeY)
+
+      if (d < 1) {
+        return k
+      } else {
+        return false
       }
     }
   }

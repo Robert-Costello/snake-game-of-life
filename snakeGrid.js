@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 /* eslint-disable complexity */
 
 //========LIFE BOARD===============
@@ -39,7 +40,9 @@ function setup() {
 function draw() {
   background(45)
 
+  //IF DEATH SPELL OUT 'YOU ARE DEAD' ON GRID
   s.death()
+
   s.update()
   s.show()
 
@@ -47,6 +50,14 @@ function draw() {
     for (let j = 0; j < rows; j++) {
       let x = i * res
       let y = j * res
+
+      // if (grid[i][j] === 1 && s.cut(x, y) >= 0) {
+      //   let k = s.cut(x, y)
+      //   console.log('cut', s.total, k)
+      //   s.total = k
+      // s.tail = s.tail.slice(s.tail.length - 1, k)
+      //   s.update()
+      // }
 
       if (s.eat(x, y) && grid[i][j] === 1) {
         grid[i][j] = 0
