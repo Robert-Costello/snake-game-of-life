@@ -19,9 +19,16 @@ function snake() {
         this.tail = []
         console.log('death')
 
-        for (let i = 0; i < cols; i++) {
+        this.x = 0
+        this.y = 0
+        this.xSpeed = 0
+        this.ySpeed = 0
+        this.total = 0
+        this.tail = []
+
+        for (let k = 0; k < cols; k++) {
           for (let j = 0; j < rows; j++) {
-            grid[i][j] = 0
+            grid[k][j] = 0
           }
         }
         grid[10][14] = grid[10][15] = grid[11][16] = grid[12][16] = grid[13][16] = grid[12][17] = grid[12][18] = grid[14][15] = grid[14][14] = grid[17][14] = grid[18][14] = grid[21][14] = grid[24][14] = grid[29][14] = grid[30][14] = grid[33][14] = grid[34][14] = grid[35][14] = grid[38][14] = grid[39][14] = grid[40][14] = grid[41][14] = grid[16][15] = grid[19][15] = grid[21][15] = grid[24][15] = grid[28][15] = grid[31][15] = grid[33][15] = grid[36][15] = grid[38][15] = grid[16][16] = grid[19][16] = grid[21][16] = grid[28][16] = grid[29][16] = grid[30][16] = grid[31][16] = grid[33][16] = grid[34][16] = grid[35][16] = grid[38][16] = grid[39][16] = grid[40][16] = grid[17][18] = grid[18][18] = grid[16][17] = grid[16][21] = grid[21][17] = grid[24][17] = grid[28][17] = grid[31][17] = grid[33][17] = grid[35][17] = grid[38][17] = grid[22][18] = grid[23][18] = grid[28][18] = grid[31][18] = grid[33][18] = grid[36][18] = grid[38][18] = grid[39][18] = grid[40][18] = grid[41][18] = grid[19][17] = grid[24][16] = grid[15][21] = grid[17][21] = grid[20][21] = grid[21][21] = grid[22][21] = grid[23][21] = grid[26][21] = grid[27][21] = grid[30][21] = grid[31][21] = grid[32][21] = grid[36][21] = grid[15][22] = grid[18][22] = grid[20][22] = grid[25][22] = grid[28][22] = grid[30][22] = grid[33][22] = grid[36][22] = grid[15][23] = grid[18][23] = grid[20][23] = grid[21][23] = grid[22][23] = grid[25][23] = grid[26][23] = grid[27][23] = grid[28][23] = grid[30][23] = grid[33][23] = grid[36][23] = grid[15][24] = grid[18][24] = grid[20][24] = grid[25][24] = grid[28][24] = grid[30][24] = grid[33][24] = grid[15][25] = grid[16][25] = grid[17][25] = grid[20][25] = grid[21][25] = grid[22][25] = grid[23][25] = grid[25][25] = grid[28][25] = grid[30][25] = grid[31][25] = grid[32][25] = grid[36][25] = 1
