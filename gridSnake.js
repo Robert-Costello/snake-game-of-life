@@ -52,7 +52,7 @@ function snake() {
       let d = dist(pos.x, pos.y, lifeX, lifeY)
 
       if (d < 1) {
-        return k
+        return true
       } else {
         return false
       }
