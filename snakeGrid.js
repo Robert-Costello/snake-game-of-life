@@ -32,7 +32,7 @@ function setup() {
 
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      if (j > 2) grid[i][j] = floor(random(2))
+      if (j % 2 === 0 || i % 2 !== 0) grid[i][j] = floor(random(2))
     }
   }
 }
@@ -51,13 +51,13 @@ function draw() {
       let x = i * res
       let y = j * res
 
-      // if (grid[i][j] === 1 && s.cut(x, y) >= 0) {
-      //   let k = s.cut(x, y)
-      //   console.log('cut', s.total, k)
-      //   s.total = k
-      // s.tail = s.tail.slice(s.tail.length - 1, k)
-      //   s.update()
-      // }
+      if (grid[i][j] === 1 && s.cut(x, y)) {
+        s.total = 0
+        s.tail = []
+        console.log('cut')
+
+        s.update()
+      }
 
       if (s.eat(x, y) && grid[i][j] === 1) {
         grid[i][j] = 0
